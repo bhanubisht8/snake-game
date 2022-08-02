@@ -36,6 +36,6 @@ body{
 }
 
 .snakeBody{
-    background-color: red;
+    background-color: rgb(13, 141, 226);
     border: 2px solid black;
 }
