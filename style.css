@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;;
+}
+
+body{
+    background: url(img/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 65vh;
+}
+
+.cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.scoreboard{
+    display: flex;
+    font-size: 35px;
+    column-gap: 130px;
+    font-size: bold;
+}
+.gamebox{
+    background: linear-gradient(green, yellow);
+    height: 90vmin;
+    width: 90vmin;
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(18, 1fr);
+
+}
+
+.snakeBody{
+    background-color: red;
+    border: 2px solid black;
+}
