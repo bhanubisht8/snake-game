@@ -26,7 +26,7 @@ body{
     font-size: bold;
 }
 .gamebox{
-    background: linear-gradient(green, yellow);
+    background: linear-gradient(red, yellow);
     height: 90vmin;
     width: 90vmin;
     display: grid;
@@ -38,4 +38,9 @@ body{
 .snakeBody{
     background-color: rgb(13, 141, 226);
     border: 2px solid black;
+}
+
+.snakeHead{
+    background: url(img/head.png);
+    background-size: cover;
 }

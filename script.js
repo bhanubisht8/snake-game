@@ -1,15 +1,17 @@
 // All Variables
 let snakeSpeed = 1;
 const gameboard = document.querySelector(".gamebox");
-
-
-
 let lastPaintTime = 0; 
 
 
 let inputDirection = { x: 0, y: 0 };
+let lastInput = inputDirection;
 let snakeBody = [
-    { x: 8, y: 8 }
+    { x: 8, y: 8 },
+    { x: 9, y: 8 },
+    { x: 10, y: 8 },
+    { x: 11, y: 8 },
+    { x: 12, y: 8 }
 ]
 
 
@@ -51,12 +53,17 @@ function update() {
 }
 
 function drowSnake() {
-    snakeBody.forEach(element => {
+    snakeBody.forEach((element, index) => {
         let snakeElement = document.createElement("div");
         snakeElement.style.gridColumnStart = element.x;
         snakeElement.style.gridRowStart = element.y;
         
-        snakeElement.classList.add("snakeBody");
+        snakeElement.innerHTML=index;
+        if (index==0) {
+            snakeElement.classList.add("snakeHead");
+        }else{
+            snakeElement.classList.add("snakeBody");
+        }
         gameboard.appendChild(snakeElement);
         
     });
@@ -67,24 +74,49 @@ function snakeMove() {
     // snakeBody[0].x += 1;   
     // snakeBody[0].y += 0;
     inputDirection = getInputDirection();
+    for (i=snakeBody.length-2; i >= 0 ; i--){
+       snakeBody[i+1]={...snakeBody[i]};  
+    }
     snakeBody[0].x += inputDirection.x;
     snakeBody[0].y += inputDirection.y;
+
 }
 
 function getInputDirection() {
     window.addEventListener('keydown', e => {
         switch (e.key) {
-            case 'ArrowUp': inputDirection = { x: 0, y: -1 };
+
+            case 'ArrowUp': 
+            if (lastInput.y==1) {
+                return;
+            }
+            inputDirection = { x: 0, y: -1 };
                 break;
-            case 'ArrowDown': inputDirection = { x: 0, y: 1 };
+                
+            case 'ArrowDown': 
+            if (lastInput.y==-1) {
+                return;
+            }
+            inputDirection = { x: 0, y: 1 };
                 break;
-            case 'ArrowLeft': inputDirection = { x: -1, y: 0 };
+
+            case 'ArrowLeft': 
+            if (lastInput.x==1) {
+                return;
+            }
+            inputDirection = { x: -1, y: 0 };
                 break;
-            case 'ArrowRight': inputDirection = { x: 1, y: 0 };
+
+            case 'ArrowRight': 
+            if (lastInput.x==-1) {
+                return;
+            }
+            inputDirection = { x: 1, y: 0 };
                 break;
             default: inputDirection = {x:0, y:0};
                 break;
         }       
     })
+    lastInput=inputDirection;
     return inputDirection; 
 }
