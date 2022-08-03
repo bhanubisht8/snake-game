@@ -1,5 +1,5 @@
 // All Variables
-let snakeSpeed = 10;
+let snakeSpeed = 1;
 const gameboard = document.querySelector(".gamebox");
 let score = 0;
 let scoreBoard = document.getElementById("scoreValue");
