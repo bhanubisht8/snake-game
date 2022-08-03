@@ -189,8 +189,8 @@ function foodRandomPostion() {
     let a, b,  myCondition = true;
     
     while (myCondition) {
-        a = Math.floor(Math.random()*18);
-        b = Math.floor(Math.random()*18);
+        a = Math.floor(Math.random()*16);
+        b = Math.floor(Math.random()*16);
         myCondition = snakeBody.some(segment=>{
             return  (segment.x==a && segment.y==b);
         })
@@ -209,7 +209,7 @@ function checkGameOver() {
 }
 
 function snakeOutOfBoundary(){
-    return snakeBody[0].x < 1 || snakeBody[0].x > 18 || snakeBody[0].y < 1 || snakeBody[0].y > 16
+    return snakeBody[0].x < 1 || snakeBody[0].x > 18 || snakeBody[0].y < 1 || snakeBody[0].y > 18;
 }
 
 function snakeIntersect() {
