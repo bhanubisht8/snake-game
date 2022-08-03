@@ -1,5 +1,5 @@
 // All Variables
-let snakeSpeed = 2;
+let snakeSpeed = 5;
 const gameboard = document.querySelector(".gamebox");
 let score = 0;
 let scoreBoard = document.getElementById("scoreValue");
@@ -10,7 +10,7 @@ const moveMusic = new Audio('move.mp3');
 const goveOverSound = new Audio('gameover.mp3');
 
 
-const snakeIncrement = 100;
+const snakeIncrement = 1;
 let inputDirection = { x: 0, y: 0 };
 let lastInput = inputDirection;
 let food = {x:(Math.floor(Math.random()*18)), y:(Math.floor(Math.random()*18))};
