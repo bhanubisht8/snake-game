@@ -1,5 +1,5 @@
 // All Variables
-let snakeSpeed = 5;
+let snakeSpeed = 10;
 const gameboard = document.querySelector(".gamebox");
 let score = 0;
 let scoreBoard = document.getElementById("scoreValue");
@@ -187,14 +187,21 @@ function snakeEatingFood() {
 function foodRandomPostion() {
 
     let a, b,  myCondition = true;
+
+    let c = 2;
+    let d = 17;
+
+    
     
     while (myCondition) {
-        a = Math.floor(Math.random()*16);
-        b = Math.floor(Math.random()*16);
+        a = Math.floor((d-c)*Math.random() + c);
+        b = Math.floor((d-c)*Math.random() + c);
         myCondition = snakeBody.some(segment=>{
             return  (segment.x==a && segment.y==b);
         })
     }
+
+    console.log(a,b);
         return {x : a, y: b}
 }
 
