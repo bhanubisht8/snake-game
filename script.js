@@ -52,7 +52,9 @@ if(hiscore1 === null){
 }
 else{
     hiscore1val = JSON.parse(hiscore1);
-    highScoreValue.innerHTML =  hiscore1;
+    // hiscore1val = JSON.parse(JSON.stringify(hiscore1val));
+    highScoreValue.innerHTML =  hiscore1val;
+    // console.log(hiscore1val);
 }
 window.requestAnimationFrame(screenPaint);
 
@@ -171,8 +173,8 @@ function snakeEatingFood() {
         if(score>hiscore1val){
             hiscore1val = score;
             localStorage.setItem("myHiscore", JSON.stringify(hiscore1val));
-            // hiscoreBox.innerHTML = "HiScore: " + hiscoreval;
             highScoreValue.innerHTML = hiscore1val;
+            
         }
         foodSound.play();
        food = foodRandomPostion();
@@ -201,7 +203,7 @@ function foodRandomPostion() {
         })
     }
 
-    console.log(a,b);
+    // console.log(a,b);
         return {x : a, y: b}
 }
 
