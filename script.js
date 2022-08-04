@@ -1,5 +1,5 @@
 // All Variables
-let snakeSpeed = 1;
+let snakeSpeed = 10;
 const gameboard = document.querySelector(".gamebox");
 let score = 0;
 let scoreBoard = document.getElementById("scoreValue");
@@ -44,15 +44,15 @@ function screenPaint(currentTime) {
 // Game Logic
 
 
-let hiscore = localStorage.getItem("hiscore");
+let hiscore1 = localStorage.getItem("myHiscore");
 
-if(hiscore === null){
-    hiscoreval = 0;
-    localStorage.setItem("hiscore", JSON.stringify(hiscoreval))
+hiscore1val = 0;
+if(hiscore1 === null){
+    localStorage.setItem("myHiscore", JSON.stringify(hiscore1val))
 }
 else{
-    hiscoreval = JSON.parse(hiscore);
-    highScoreValue.innerHTML =  hiscore;
+    hiscore1val = JSON.parse(hiscore1);
+    highScoreValue.innerHTML =  hiscore1;
 }
 window.requestAnimationFrame(screenPaint);
 
@@ -168,11 +168,11 @@ function snakeEatingFood() {
         // console.log(snakeBody);
         score +=10;
         scoreBoard.innerHTML = score;
-        if(score>hiscoreval){
-            hiscoreval = score;
-            localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
+        if(score>hiscore1val){
+            hiscore1val = score;
+            localStorage.setItem("myHiscore", JSON.stringify(hiscore1val));
             // hiscoreBox.innerHTML = "HiScore: " + hiscoreval;
-            highScoreValue.innerHTML = hiscoreval;
+            highScoreValue.innerHTML = hiscore1val;
         }
         foodSound.play();
        food = foodRandomPostion();
