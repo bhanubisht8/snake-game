@@ -1,5 +1,5 @@
 // All Variables
-let snakeSpeed = 1;
+let snakeSpeed = 10;
 const gameboard = document.querySelector(".gamebox");
 let score = 0;
 let scoreBoard = document.getElementById("scoreValue");
@@ -151,6 +151,7 @@ function getInputDirection() {
 }
 
 function drowFood() {
+
     let foodElement = document.createElement('div');
 
      
@@ -203,6 +204,8 @@ function foodRandomPostion() {
 
     console.log(a,b);
         return {x : a, y: b}
+
+        
 }
 
 function checkGameOver() {
