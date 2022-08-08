@@ -44,15 +44,17 @@ function screenPaint(currentTime) {
 // Game Logic
 
 
-let hiscore = localStorage.getItem("hiscore");
+let hiscore1 = localStorage.getItem("myHiscore");
 
-if(hiscore === null){
-    hiscoreval = 0;
-    localStorage.setItem("hiscore", JSON.stringify(hiscoreval))
+hiscore1val = 0;
+if(hiscore1 === null){
+    localStorage.setItem("myHiscore", JSON.stringify(hiscore1val))
 }
 else{
-    hiscoreval = JSON.parse(hiscore);
-    highScoreValue.innerHTML =  hiscore;
+    hiscore1val = JSON.parse(hiscore1);
+    // hiscore1val = JSON.parse(JSON.stringify(hiscore1val));
+    highScoreValue.innerHTML =  hiscore1val;
+    // console.log(hiscore1val);
 }
 window.requestAnimationFrame(screenPaint);
 
@@ -169,11 +171,11 @@ function snakeEatingFood() {
         // console.log(snakeBody);
         score +=10;
         scoreBoard.innerHTML = score;
-        if(score>hiscoreval){
-            hiscoreval = score;
-            localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
-            // hiscoreBox.innerHTML = "HiScore: " + hiscoreval;
-            highScoreValue.innerHTML = hiscoreval;
+        if(score>hiscore1val){
+            hiscore1val = score;
+            localStorage.setItem("myHiscore", JSON.stringify(hiscore1val));
+            highScoreValue.innerHTML = hiscore1val;
+            
         }
         foodSound.play();
        food = foodRandomPostion();
@@ -202,7 +204,7 @@ function foodRandomPostion() {
         })
     }
 
-    console.log(a,b);
+    // console.log(a,b);
         return {x : a, y: b}
 
         
